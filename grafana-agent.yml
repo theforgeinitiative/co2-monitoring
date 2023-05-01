@@ -1,0 +1,15 @@
+metrics:
+  global:
+    scrape_interval: 60s
+  configs:
+  - name: hosted-prometheus
+    scrape_configs:
+      - job_name: downstairs-co2
+        static_configs:
+        - targets: ['192.168.1.x:80']
+      - job_name: upstairs-co2
+        static_configs:
+        - targets: ['192.168.1.x:80']
+      - job_name: upstairs-back-co2
+        static_configs:
+        - targets: ['192.168.1.x:9877']

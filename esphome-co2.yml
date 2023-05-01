@@ -1,0 +1,43 @@
+esphome:
+  name: co2-monitor
+
+esp8266:
+  board: nodemcu
+
+# Enable logging
+logger:
+
+ota:
+  password: ""
+
+web_server:
+  port: 80
+
+prometheus:
+
+wifi:
+  ssid: "X"
+  password: "X"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Fallback Hotspot"
+    password: "X"
+
+captive_portal:
+
+i2c:
+  sda: 4
+  scl: 5
+
+sensor:
+  - platform: scd30
+    co2:
+      name: "CO2"
+      accuracy_decimals: 1
+    temperature:
+      name: "Temperature"
+      accuracy_decimals: 2
+    humidity:
+      name: "Humidity"
+      accuracy_decimals: 1
